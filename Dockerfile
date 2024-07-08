@@ -1,14 +1,9 @@
-FROM node:lts-alpine3.20
-
-WORKDIR /www
-
-COPY package*.json ./
-
-RUN npm install
-
+FROM node:lts-alpine
+WORKDIR /usr/src/app
+COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
+RUN npm install --silent && mv node_modules ../
 COPY . .
-
 EXPOSE 3000
-
-CMD [ "npm" , "test" ]
-
+RUN chown -R node /usr/src/app
+USER node
+CMD ["npm", "test"]

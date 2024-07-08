@@ -2,7 +2,7 @@
   "name": "testunitaire",
   "version": "1.0.0",
   "description": "",
-  "main": "inverse.js",
+  "main": "calculatrice.js",
   "scripts": {
     "test": "jest",
     "test:cov": "jest --coverage"
